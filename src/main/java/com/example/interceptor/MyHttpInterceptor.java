@@ -43,7 +43,7 @@ public class MyHttpInterceptor extends HandlerInterceptorAdapter {
                 queryString.append(key).append("=").append(value).append("&");
             }
         }
-        queryString = new StringBuilder(queryString.toString().equals("") ? null : queryString.substring(0, queryString.length() - 1));
+        queryString = new StringBuilder(queryString.toString().isEmpty() ? "" : queryString.substring(0, queryString.length() - 1));
         log.info(String.format("请求参数, url: %s, method: %s, params: %s", url, method, queryString.toString()));
 
         // hello不做拦截
